@@ -1,1 +1,1 @@
-export declare function runServiceWorkerCommand<T>(name: string, data?: any): Promise<T>;
+export declare function runServiceWorkerCommand<T>(name: string, data?: T): Promise<T>;

@@ -9,7 +9,7 @@ function createPendingPromise<T>(): [Promise<T>, (T) => void, (Error) => void] {
     return [promise, fulfill, reject];
 }
 
-export function runServiceWorkerCommand<T>(name: string, data?: any) {
+export function runServiceWorkerCommand<T>(name: string, data?: T) {
     let command: Command = { name, data };
 
     let channel = new MessageChannel();

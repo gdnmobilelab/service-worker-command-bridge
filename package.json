@@ -3,11 +3,17 @@
     "version": "2.0.0",
     "description": "",
     "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
     "scripts": {
         "build": "tsc"
     },
     "author": "",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url":
+            "https://github.com/gdnmobilelab/service-worker-command-bridge.git"
+    },
     "devDependencies": {
         "copy-webpack-plugin": "^4.1.1",
         "typescript": "^2.5.3",
