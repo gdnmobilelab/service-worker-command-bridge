@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "lib": ["es6", "dom"],
+        "declaration": true,
+        "outDir": "lib",
+        "module": "es6",
+        "target": "es5",
+        "sourceMap": true
+    },
+    "include": ["src"]
+}

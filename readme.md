@@ -11,25 +11,24 @@ worker and parsing the result inside the web client.
 
 ## How do I use it?
 
-There are two main files - `service-worker.js` and `client.js`.
-You should require them on the two separate JS contexts. Then
-you can use it like so:
+You should require the library in both your worker and client JS, like so:
 
 *In Service Worker*
     
-    const swBridge = require("service-worker-command-bridge/service-worker");
+    import { CommandListener } from "service-worker-command-bridge";
     
-    swBridge.bind("test-command", (data) => {
+    CommandListener.bind("test-command", (data) => {
         
-        // this is a promise, so you can return a value
-        // or return a Promise chain.
+        // You can return a value directly, or return a promise
+        // and the bridge will return the resolved value to
+        // the client.
         
         return data.startNumber * 10;
     })
     
 *In client*
 
-    const runServiceWorkerCommand = require("service-worker-command-bridge/client");
+    import { runServiceWorkerCommand } from "service-worker-command-bridge";
     
     runServiceWorkerCommand("test-command", {
         startNumber: 10
@@ -37,3 +36,11 @@ you can use it like so:
     .then((endNumber) => {
         console.log(endNumber); // = 100
     })
+
+## Upgrading from v1
+
+Version 2.0 has a number of breaking changes you should be aware of:
+
+- It now uses ES6 modules, so your build system needs to be able to handle them. Rollup and the latest version of Webpack should work fine. Optimally your build system will also support tree-shaking, as both the client and worker sides are included in `index.js`.
+- On the worker side, you must now call `CommandListener.listen()` to start the bridge.
+- It has been rewritten in TypeScript, and emits definition files for you to use.

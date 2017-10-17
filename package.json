@@ -1,11 +1,17 @@
 {
-  "name": "service-worker-command-bridge",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "service-worker-command-bridge",
+    "version": "2.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "copy-webpack-plugin": "^4.1.1",
+        "typescript": "^2.5.3",
+        "webpack": "^3.8.0",
+        "webpack-dev-server": "^2.9.2"
+    }
 }
