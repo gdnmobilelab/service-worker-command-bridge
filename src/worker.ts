@@ -1,4 +1,5 @@
 import { Action, Command, CommandResponse } from "./interfaces";
+import deepForEach from "deep-for-each";
 
 export type Listener<T> = (T) => any;
 
@@ -27,7 +28,18 @@ export class CommandBridgeListener {
                 return { error } as CommandResponse;
             })
             .then(response => {
-                respondOn.postMessage(response);
+                let transferables: (MessagePort | ArrayBuffer)[] = [];
+
+                deepForEach(response, value => {
+                    if (
+                        value instanceof MessagePort ||
+                        value instanceof ArrayBuffer
+                    ) {
+                        transferables.push(value);
+                    }
+                });
+
+                respondOn.postMessage(response, transferables);
             });
     }
 

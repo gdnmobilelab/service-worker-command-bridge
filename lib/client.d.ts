@@ -1,1 +1,4 @@
-export declare function runServiceWorkerCommand<T>(name: string, data?: T): Promise<T>;
+export declare class ServiceWorkerNotSupportedError extends Error {
+    constructor();
+}
+export declare function runServiceWorkerCommand<I, O>(name: string, data?: I): Promise<O>;

@@ -11,13 +11,15 @@
     "license": "ISC",
     "repository": {
         "type": "git",
-        "url":
-            "https://github.com/gdnmobilelab/service-worker-command-bridge.git"
+        "url": "https://github.com/gdnmobilelab/service-worker-command-bridge.git"
     },
     "devDependencies": {
         "copy-webpack-plugin": "^4.1.1",
         "typescript": "^2.5.3",
         "webpack": "^3.8.0",
         "webpack-dev-server": "^2.9.2"
+    },
+    "dependencies": {
+        "deep-for-each": "^1.0.6"
     }
 }

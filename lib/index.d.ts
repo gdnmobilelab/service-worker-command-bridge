@@ -1,2 +1,2 @@
-export { runServiceWorkerCommand } from "./client";
+export { runServiceWorkerCommand, ServiceWorkerNotSupportedError } from "./client";
 export { CommandListener } from "./worker";
