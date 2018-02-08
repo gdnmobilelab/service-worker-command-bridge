@@ -33,7 +33,7 @@ export function runServiceWorkerCommand<I, O>(
     channel.port2.addEventListener("message", (e: MessageEvent) => {
         let response = e.data as CommandResponse;
         if (response.error) {
-            reject(response.error);
+            reject(new Error(response.error));
         } else {
             fulfill(response.data);
         }

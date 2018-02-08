@@ -4,7 +4,7 @@ export interface Command {
 }
 export interface CommandResponse {
     data?: any;
-    error?: Error;
+    error?: string;
 }
 export declare enum Action {
     RunCommand = "run-command",

@@ -25,7 +25,7 @@ export class CommandBridgeListener {
                 return { data: returnData } as CommandResponse;
             })
             .catch(error => {
-                return { error } as CommandResponse;
+                return { error: error.message } as CommandResponse;
             })
             .then(response => {
                 let transferables: (MessagePort | ArrayBuffer)[] = [];

@@ -5,7 +5,7 @@ export interface Command {
 
 export interface CommandResponse {
     data?: any;
-    error?: Error;
+    error?: string;
 }
 
 export enum Action {
